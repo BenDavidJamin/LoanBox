@@ -7,6 +7,8 @@ require.config({
   }
 });
 
-require(['views/app'], function(AppView) {
-  new AppView;
-});
+require(["jquery", "backbone", "router"],
+ function($, Backbone, Router) {
+        return new Router();
+ }
+);
