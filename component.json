@@ -6,6 +6,7 @@
     "jquery": null,
     "backbone-amd": null,
     "underscore-amd": null,
-    "handlebars": null
+    "handlebars": null,
+    "gis-backbone-components-amd": "git@gitlab.genslerwi.com:benjamin_metzger/gis-backbone-components-amd.git"
   }
 }
