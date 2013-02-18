@@ -1,4 +1,5 @@
 require.config({
+  baseUrl: '../',
   paths: {
     'jquery': 'vendor/jquery/jquery',
     'underscore': 'vendor/underscore-amd/underscore',
@@ -7,6 +8,8 @@ require.config({
   }
 });
 
-require(['views/app'], function(AppView) {
-  new AppView;
-});
+require(["jquery", "backbone", "router"],
+ function($, Backbone, Router) {
+        return new Router();
+ }
+);
