@@ -7,8 +7,9 @@
     "backbone-amd": null,
     "underscore-amd": null,
     "handlebars": null,
-    "gis-backbone-components-amd": "git@gitlab.genslerwi.com:benjamin_metzger/gis-backbone-components-amd.git",
+    "gis-backbone-components-amd": "git@gitlab.genslerwi.com:backbone-web-development/gis-backbone-components-amd.git",
     "modernizr": "http://modernizr.com/downloads/modernizr-latest.js",
-    "normalize": "https://github.com/necolas/normalize.css.git"
+    "normalize": "https://github.com/necolas/normalize.css.git",
+    "async": "https://github.com/caolan/async.git"
   }
 }
