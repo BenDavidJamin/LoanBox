@@ -8,8 +8,13 @@ require.config({
   }
 });
 
-require(["jquery", "backbone", "router"],
- function($, Backbone, Router) {
-        return new Router();
- }
+require(["router"],
+  /**
+   *
+   * Initiates the router for the app.
+   *
+   */
+  function(Router) {
+    return new Router();
+  }
 );
