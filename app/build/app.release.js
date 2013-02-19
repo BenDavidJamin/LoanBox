@@ -21,7 +21,7 @@
     //with the default options, no need to specify
     //any of these properties.
     output: {
-        beautify: true
+        beautify: false 
     },
     compress: {
         sequences: false,
