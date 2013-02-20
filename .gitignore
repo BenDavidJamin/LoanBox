@@ -1,4 +1,4 @@
-app/js/vendor
 app/vendor
-dist/
+debug/
+production/
 .DS_Store

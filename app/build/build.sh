@@ -1,15 +1,14 @@
-echo -n "Pick release mode (debug/release): "
-read -e mode  
-if [ "debug" = "$mode" ]; then
+if [ "debug" = "$1" ]; then
   r.js -o build/app.debug.js
-elif [ "release" = "$mode" ]; then
-  r.js -o build/app.release.js
+  cd ../debug
+elif [ "production" = "$1" ]; then
+  r.js -o build/app.production.js
+  cd ../production
 else
-  echo $mode " is not a valid release mode (debug/release)."
+  echo $1 " is not a valid release mode (debug/production)."
   exit "ERROR"
 fi
 
-cd ../dist
 mv vendor/requirejs/require.js require.js
 rm -rf vendor/* build js/views js/models js/collections build.txt
 mkdir vendor/requirejs && mv require.js vendor/requirejs/require.js

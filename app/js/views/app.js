@@ -1,5 +1,5 @@
 define(['backbone', 'underscore', 'jquery'],
-	function (Backbone, _, jquery) {
+	function (Backbone, _, $) {
 
   /**
    * @class App
