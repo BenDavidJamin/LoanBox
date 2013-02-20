@@ -8,7 +8,7 @@
     'handlebars': '../vendor/handlebars/handlebars',
     'async': '../vendor/async/lib/async'
   },
-  dir: "../../dist",
+  dir: "../../debug",
   name: 'main',
   mainConfigFile: '../js/main.js',
   optimizeCss: 'standard',

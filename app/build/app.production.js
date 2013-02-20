@@ -8,7 +8,7 @@
     'handlebars': '../vendor/handlebars/handlebars',
     'async': '../vendor/async/lib/async'
   },
-  dir: "../../dist",
+  dir: "../../production",
   name: 'main',
   mainConfigFile: '../js/main.js',
   optimizeCss: 'standard',
@@ -21,7 +21,7 @@
     //with the default options, no need to specify
     //any of these properties.
     output: {
-        beautify: false 
+        beautify: false
     },
     compress: {
         sequences: false,
