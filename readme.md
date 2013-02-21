@@ -35,3 +35,17 @@ this will create a new `dist` directory, copy the files over, run the r.js optim
 ### CSS Imports
 
 If you're not using a preprocessor, feel free to modularize your stylesheets, and `@import` them into a master stylesheet. During the build process, r.js will merge these files together, so that you don't have to deal with any performance hits from using `@import`.
+
+#### Sass
+ 
+To get sass up and running you'll need to do a few things
+
+1. Install Ruby
+2. Install ruby gem
+3. 
+
+        gem install sass
+
+4. Set it up to watch the sass files 
+
+       sass --watch style.scss:style.css
