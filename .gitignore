@@ -1,4 +1,5 @@
 app/vendor
-debug/
-production/
+app/css/.sass-cache
+debug
+production
 .DS_Store
