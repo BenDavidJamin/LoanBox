@@ -48,4 +48,10 @@ To get sass up and running you'll need to do a few things
 
 4. Set it up to watch the sass files 
 
-       sass --watch style.scss:style.css
+         sass --watch style.scss:style.css
+5. We're using compass for further simplification and a nice framework for provided helpers so lets setup that. 
+
+		gem install compass
+6. Watch our directory
+
+		compass watch
