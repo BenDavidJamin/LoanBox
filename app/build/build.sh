@@ -9,6 +9,7 @@ else
   exit "ERROR"
 fi
 
+yuidoc ../app/js -o ./apidocs
 mv vendor/requirejs/require.js require.js
 rm -rf vendor/* build js/views js/models js/collections build.txt
 mkdir vendor/requirejs && mv require.js vendor/requirejs/require.js
