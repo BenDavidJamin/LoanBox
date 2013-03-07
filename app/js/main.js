@@ -5,8 +5,10 @@ require.config({
     'underscore': '../vendor/underscore-amd/underscore',
     'backbone': '../vendor/backbone-amd/backbone',
     'handlebars': '../vendor/handlebars/handlebars',
-    'async': '../vendor/async/lib/async'
+    'async': '../vendor/async/lib/async',
+    'subroute': '../vendor/subroute/backbone.subroute'
   }
+
 });
 
 require(["router"],
