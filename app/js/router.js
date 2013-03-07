@@ -2,13 +2,11 @@
 define([
   'jquery',
   'backbone',
+  'app',
   'views/app',
   'routers/examples'
-], function($, Backbone, AppView, ExampleRoutes){
+], function($, Backbone, App, AppView, ExampleRoutes){
 
-  var App = {
-    Routers: {}
-  };
   /**
    *
    * @class Router
@@ -23,10 +21,7 @@ define([
      * site navigation.
      */
     initialize: function() {
-      this.Routers = {};
       Backbone.history.start();
-
-      _.bindAll(this, "invokeExamplesModule");
     },
 
     routes: {
@@ -35,13 +30,18 @@ define([
       "examples/*subroute": "invokeExamplesModule"
     },
 
+    /**
+     * [A sub section of the application that deals with extentions of examples/]
+     * @method invokeExamplesModule
+     * @param  {[type]}             subroute [The subroute of the examples router]
+     * @return {[type]}                      [description]
+     */
     invokeExamplesModule: function(subroute){
-      console.log(subroute);
       if(DEBUG){
         console.log("invoking subroutes for Examples");
       }
-      if(!App.Routers.Examples){
-        App.Routers.Examples = new ExampleRoutes("examples/");
+      if(!App.routes.Examples){
+        App.routes.Examples = new ExampleRoutes("examples/");
       }
     },
 
@@ -50,8 +50,8 @@ define([
      * The default view for the application.
      */
     index: function(){
-        var app = new AppView();
-        $("#main").append(app.el);
+        var appView = new AppView();
+        $("#main").append(appView.el);
     }
   });
 
