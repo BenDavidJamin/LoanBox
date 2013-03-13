@@ -1,12 +1,12 @@
-define(['backbone', 'underscore', 'jquery'],
-	function (Backbone, _, $) {
+define(['backbone', 'underscore', 'jquery', 'app'],
+	function (Backbone, _, $, App) {
 
   /**
    * @class App
    * @extends Backbone.View
    * The first touch down to the application
    */
-  var App = Backbone.View.extend({
+  var AppView = Backbone.View.extend({
     // The tag type of the appview.
     tagName: "div",
 
@@ -24,10 +24,11 @@ define(['backbone', 'underscore', 'jquery'],
       if(PRODUCTION){
         console.log("we're using the production mode");
       }
+      App.trigger("init");
       console.log( 'Wahoo!' );
     }
 
   });
 
-  return App;
+  return AppView;
 });
