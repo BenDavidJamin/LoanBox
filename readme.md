@@ -66,9 +66,11 @@ To get sass up and running you'll need to do a few things
     npm install -g testem
 
  The tests for the project will be in files and subfolders under 
+
     app/tests
 
  Once you have your tests you can run testem with 
+ 
     testem
  
  For further documentation [testem documenation](https://github.com/airportyh/testem)
