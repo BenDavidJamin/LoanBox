@@ -55,3 +55,20 @@ To get sass up and running you'll need to do a few things
 6. Watch our directory
 
 		compass watch
+
+### Testing with Testem
+
+ The problem with testing is generally the overhead in setup. Hopefully this setup with testem will remove some of the 
+ head aches. All of the test scripts use requirejs so imported the files you want to do testing on can be done in an AMD fashion.
+
+ Ensure that testem is install on your machine. 
+
+    npm install -g testem
+
+ The tests for the project will be in files and subfolders under 
+    app/tests
+
+ Once you have your tests you can run testem with 
+    testem
+ 
+ For further documentation [testem documenation](https://github.com/airportyh/testem)
