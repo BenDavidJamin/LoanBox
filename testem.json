@@ -1,0 +1,6 @@
+{
+  "src_files": [
+    "app/tests/*"    
+  ]
+  , "test_page": "app/testRunner.html"
+}
