@@ -6,7 +6,7 @@ define(['jquery', 'backbone', 'underscore'], function ($, Backbone, _){
     routes: {},
     session: {}
 
-  };
+  }
 
   /**
    * Extending Backbone.Events to provide the ability to have a central location to 
