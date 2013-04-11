@@ -12,7 +12,6 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-clean": "~0.4.0",
     "grunt-contrib": "~0.6.1",
-    "grunt-shell": "*",
-    
+    "grunt-shell": "*"
   }
 }
