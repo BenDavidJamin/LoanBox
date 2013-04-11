@@ -1,5 +1,4 @@
 {
-  "src_files":["app/tests/*"],
-  "test_page":"app/testRunner.html",
-  "launch_in_ci":["phantomjs"]
+  "src_files":["app/tests/*.js"],
+  "test_page":"app/testRunner.html"
 }

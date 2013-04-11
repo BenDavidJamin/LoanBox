@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   //Do grunt-related things in here
 
   grunt.loadNpmTasks('grunt-contrib');
-  grunt.loadNpmTasks('grunt-testem');
+  grunt.loadNpmTasks('grunt-shell');
   //Project configuration
   grunt.initConfig({
     // Pull in the npm install package for possible variables
@@ -76,28 +76,14 @@ module.exports = function(grunt) {
       files: ['app/js/**/*.js']
     },
 
-    'testem': {
-      options: {
-        "src_files": [
-          "app/tests/*"
-        ],
-        "test_page": "app/testRunner.html",
-        launch_in_ci : [
-          'phantomjs'
-        ]
-      },
-      main : {
-        files : {
-          'tests.tap': [
-            'app/testRunner.html'
-          ]
-        }
+    shell: {
+      testemCI: {
+        command: "testem ci > testem.tap"
       }
     }
 
   });
 
-
-  grunt.registerTask('test', ['jshint', 'testem']);
-  grunt.registerTask('default', ['jshint', 'requirejs', 'uglify', 'clean']);
+  grunt.registerTask('test', ['jshint', 'shell']);
+  grunt.registerTask('default', ['jshint', 'bower', 'requirejs', 'uglify', 'clean']);
 };
