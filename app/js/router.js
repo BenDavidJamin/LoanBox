@@ -50,7 +50,10 @@ define([
      * The default view for the application.
      */
     index: function(){
+        App.on("init", function(){ console.log("We're initing via Backbone.Events"); });
+
         var appView = new AppView();
+
         $("#main").append(appView.el);
     }
   });

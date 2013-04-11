@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Testem Runner</title>
+  <script src="vendor/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+  <link rel="stylesheet" href="vendor/jasmine/lib/jasmine-1.3.1/jasmine.css">
+  <script src="vendor/jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
+</head>
+
+<body>
+  <div id="jasmine_content"></div>
+
+  <script data-main="js/main" src="vendor/requirejs/require.js"></script>
+  <script>
+    require([{{#serve_files}}'../{{src}}',{{/serve_files}}],
+      /**
+       * Initiates the router for the app.
+       */
+      function() {
+        var env = jasmine.getEnv();
+        env.addReporter(new jasmine.HtmlReporter);
+        env.execute();
+      }
+    );
+  </script>
+</body>
+</html>

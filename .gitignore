@@ -1,5 +1,7 @@
 app/vendor
 app/css/.sass-cache
+node_modules/
+tests.tap
 debug
 production
 .DS_Store
