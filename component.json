@@ -10,6 +10,9 @@
     "jasmine": null,
     "normalize": "https://github.com/necolas/normalize.css.git",
     "async": "https://github.com/caolan/async.git",
-    "subroute": "https://github.com/ModelN/backbone.subroute.git"
+    "subroute": "https://github.com/ModelN/backbone.subroute.git",
+    "text": null,
+    "number-formatter": "http://javascript-number-formatter.googlecode.com/svn/format.js",
+    "i18n": "https://github.com/requirejs/i18n.git"
   }
 }

@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jquery', 'app'],
-	function (Backbone, _, $, App) {
+define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app"],
+	function (Backbone, _, $, App, AppStrings) {
 
   /**
    * @class App
@@ -25,7 +25,7 @@ define(['backbone', 'underscore', 'jquery', 'app'],
         console.log("we're using the production mode");
       }
       App.trigger("init");
-      console.log( 'Wahoo!' );
+      console.log( 'Using', AppStrings.title);
     }
 
   });
