@@ -91,3 +91,5 @@ and do something like
 	{{AppStrings.title}}
 
 Exmaple above in Handlebars template
+
+A reference for browser language codes can be found [here](http://www.metamodpro.com/browser-language-codes)
