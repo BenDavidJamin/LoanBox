@@ -61,7 +61,7 @@ To get sass up and running you'll need to do a few things
  The problem with testing is generally the overhead in setup. Hopefully this setup with testem will remove some of the 
  head aches. All of the test scripts use requirejs so imported the files you want to do testing on can be done in an AMD fashion.
 
- Ensure that testem is install on your machine. 
+ Ensure that testem is installed on your machine. 
 
     npm install -g testem
 
@@ -74,3 +74,20 @@ To get sass up and running you'll need to do a few things
     testem
  
  For further documentation [testem documenation](https://github.com/airportyh/testem)
+
+### I18n Support
+
+Right now we aren't really concerned with adding any language support besides english, but doesn't mean we should be prepared. This boilerplate currently uses the plugin for requirejs [i18n](https://github.com/requirejs/i18n) 
+
+The way it works is that requirejs looks for the web browser language tag. It then looks in the app/nls/app.js for a related language. If no supported language is found it will default to the root file, which in our case is english.
+
+You can use the application strings by defining the import with requirejs by doing
+
+		define["i18n!nls/app", AppStrings] 
+
+Then you can pass it into any templating functionality with the AppStrings
+and do something like
+
+	{{AppStrings.title}}
+
+Exmaple above in Handlebars template
