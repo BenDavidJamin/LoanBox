@@ -1,5 +1,6 @@
 app/vendor
 app/css/.sass-cache
+api
 node_modules/
 tests.tap
 debug

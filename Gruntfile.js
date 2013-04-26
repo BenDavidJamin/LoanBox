@@ -3,8 +3,10 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   //Project configuration
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     // Pull in the npm install package for possible variables
     requirejs: {
       compile : {
@@ -79,6 +81,19 @@ module.exports = function(grunt) {
     shell: {
       testemCI: {
         command: "testem ci > testem.tap"
+      }
+    },
+
+    yuidoc: {
+      compile: {
+        name: '<%= pkg.name %>',
+        description: '<%= pkg.description %>',
+        version: '<%= pkg.version %>',
+        url: '<%= pkg.homepage %>',
+        options: {
+          paths: 'app/js/.',
+          outdir: 'api/'
+        }
       }
     }
 
