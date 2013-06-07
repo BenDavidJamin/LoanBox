@@ -3,7 +3,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   //Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -100,5 +99,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['jshint', 'shell']);
-  grunt.registerTask('default', ['jshint', 'bower', 'requirejs', 'uglify', 'clean']);
+  grunt.registerTask('default', ['jshint', 'requirejs', 'uglify', 'clean']);
 };
