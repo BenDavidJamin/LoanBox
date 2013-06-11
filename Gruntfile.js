@@ -3,6 +3,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-requirejs');
+
   //Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -12,19 +14,15 @@ module.exports = function(grunt) {
         options : {
           appDir: "app",
           baseUrl: "js",
-          paths: {
-            'jquery': '../vendor/jquery/jquery',
-            'underscore': '../vendor/underscore-amd/underscore',
-            'backbone': '../vendor/backbone-amd/backbone',
-            'handlebars': '../vendor/handlebars/handlebars'
-          },
           dir: "production",
           name: 'main',
           mainConfigFile: 'app/js/main.js',
           optimizeCss: 'standard',
 
           //How to optimize all the JS files in the build output directory.
-          optimize: "none",
+          optimize: "uglify2",
+
+          removeCombined:true,
 
           uglify2: {
             //Example of a specialized config. If you are fine
@@ -41,7 +39,7 @@ module.exports = function(grunt) {
                 }
             },
             warnings: true,
-            mangle: false
+            mangle: true
           }
         }
       }
@@ -71,7 +69,12 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['production/js/collections', 'production/js/models', 'production/js/views'],
+    clean: [
+      'production/tests',
+      'production/testRunner.html',
+      'production/css/sass',
+      'production/css/config.rb'    
+    ],
 
     jshint: {
       files: ['app/js/**/*.js']
@@ -80,6 +83,21 @@ module.exports = function(grunt) {
     shell: {
       testemCI: {
         command: "testem ci > testem.tap"
+      },
+      postBuild:{
+        command: [
+          'cd production',
+          // save require.js but remove everything else in vendor dir
+          'mv vendor/requirejs/require.js require.js',
+          'rm -rf vendor',
+          'mkdir -p vendor/requirejs',
+          'mv require.js vendor/requirejs/require.js',
+          // save main.js but remove everything else in js dir
+          'mv js/main.js main.js',
+          'rm -rf js',
+          'mkdir js',
+          'mv main.js js/main.js'
+        ].join('&&')
       }
     },
 
@@ -91,13 +109,13 @@ module.exports = function(grunt) {
         url: '<%= pkg.homepage %>',
         options: {
           paths: 'app/js/.',
-          outdir: 'api/'
+          outdir: 'apidocs/'
         }
       }
     }
 
   });
 
-  grunt.registerTask('test', ['jshint', 'shell']);
-  grunt.registerTask('default', ['jshint', 'requirejs', 'uglify', 'clean']);
+  grunt.registerTask('test', ['jshint', 'shell:testemCI']);
+  grunt.registerTask('default', ['requirejs', 'clean', 'shell:postBuild']);
 };

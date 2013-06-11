@@ -13,6 +13,7 @@
     "grunt-clean": "~0.4.0",
     "grunt-contrib": "~0.7.0",
     "grunt-shell": "*",
-    "grunt-requirejs": "~0.3.5"
+    "grunt-requirejs": "~0.3.5",
+    "grunt-contrib-yuidoc": "~0.4.0"
   }
 }
