@@ -4,12 +4,15 @@
   "contributors": [
     {
       "name": "Benjamin Metzger",
-      "email": "benjamindmetzger@gmail.com"
+      "email": "benjamin_metzger@gensler.com"
     }
   ],
   "devDependencies": {
     "grunt": "*",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-clean": "~0.4.0",
     "grunt-contrib": "~0.7.0",
-    "grunt-shell": "*"
+    "grunt-shell": "*",
+    "grunt-requirejs": "~0.3.5"
   }
 }
