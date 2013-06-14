@@ -1,7 +1,11 @@
 module.exports = function(grunt) {
   //Do grunt-related things in here
 
-  grunt.loadNpmTasks('grunt-contrib');
+  //grunt.loadNpmTasks('grunt-contrib');
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-clean');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-requirejs');
 
