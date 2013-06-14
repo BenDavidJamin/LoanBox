@@ -1,36 +1,32 @@
-## What is This?
+## GIS Backbone Boilerplate
 
-Switching to a more modular approach to writing JavaScript is unfortunately a more difficult process than we might hope. Once you understand the concept of AMD, you then have to figure out the logistics.
+Web App development is still the wild west of programing. There are hundreds of ways to do the same thing with different languages and ideas on how to structure a program. This is just one example of how we think things should be done. It is an opion not a known fact. 
 
-- How do you install RequireJS?
-- What about non-AMD libraries and frameworks?
-- What about dependency management?
-- What about optimization or build processes (concatenation, minification)?
-- What about configuration?
 
-This repo, along with the associated video tutorial on Nettuts+ should give you an excellent start. Also, at some point, be sure to consider Yeoman with RequireJS support.
 
 ## Setup
 
-First, of course, download this repo. Then, from the Terminal (assuming Node.js installed), install RequireJS.
+###Requirements
 
-    npm install requirejs
+- nodejs
+- npm
 
-Next, we need an easy way to deal with dependency management. We'll use Bower, from the guys at Twitter.
 
-    npm install bower
+There are two steps to get the boiler plate running. The first one is setting up the tools from the nodejs side. 
 
-Let's now install the dependencies for this project. I'm assuming that we're building a Backbone project, so I've listed RequireJS, jQuery, Underscore, and Backbone as dependencies.
+	npm install
+
+Next after installing the all of the node packages we need we can run the javascript package manager. 
 
     bower install
 
-> Please note that we're using the AMD versions of both Backbone and Underscore to make the setup process as easy as possible.
+Finally to build our application there are grunt tasks setup to compile the entire project.
 
-When ready to build the project, run:
+	grunt
 
-    build/build.sh
 
-this will create a new `dist` directory, copy the files over, run the r.js optimizer on assets, and clean it the file structure a bit for production. Refer to `app.build.js`for configuration options.
+That's it we've just installed all of our node tools for developing. The javascript packages that the boiler plate uses and compiled it for production. 
+
 
 ### CSS Imports
 
@@ -52,11 +48,11 @@ To get sass up and running you'll need to do a few things
 5. We're using compass for further simplification and a nice framework for provided helpers so lets setup that. 
 
 		gem install compass
-6. Watch our directory
+6. Watch our directory directory for changes. If any change is detected compass will compile the scss into the main style.css file automagically.
 
 		compass watch
 
-### Testing with Testem
+### Testing the front end with Testem
 
  The problem with testing is generally the overhead in setup. Hopefully this setup with testem will remove some of the 
  head aches. All of the test scripts use requirejs so imported the files you want to do testing on can be done in an AMD fashion.
