@@ -6,11 +6,18 @@ Web App development is still the wild west of programing. There are hundreds of 
 
 ## Setup
 
-###Requirements
+### Requirements
 
 - nodejs
 - npm
+- testem 
+- grunt-cli
+- bower
 
+	
+		npm install –g testem
+		npm install –g grunt-cli
+		npm install –g bower 
 
 There are two steps to get the boiler plate running. The first one is setting up the tools from the nodejs side. 
 
