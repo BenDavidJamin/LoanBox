@@ -2,16 +2,16 @@
   "name": "RequireJS Starter",
   "version": "1.0.0",
   "dependencies": {
-    "requirejs": null,
-    "jquery": null,
-    "backbone-amd": null,
-    "underscore-amd": null,
-    "handlebars": null,
-    "jasmine": null,
+    "requirejs": "*",
+    "jquery": "*",
+    "backbone-amd": "*",
+    "underscore-amd": "*",
+    "handlebars": "*",
+    "jasmine": "*",
     "normalize": "https://github.com/necolas/normalize.css.git",
     "async": "https://github.com/caolan/async.git",
     "subroute": "https://github.com/ModelN/backbone.subroute.git",
-    "text": null,
+    "text": "*",
     "number-formatter": "http://javascript-number-formatter.googlecode.com/svn/format.js",
     "i18n": "https://github.com/requirejs/i18n.git"
   }
