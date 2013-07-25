@@ -24,27 +24,9 @@ module.exports = function(grunt) {
           optimizeCss: 'standard',
 
           //How to optimize all the JS files in the build output directory.
-          optimize: "uglify2",
+          optimize: "none",
 
           removeCombined:true,
-
-          uglify2: {
-            //Example of a specialized config. If you are fine
-            //with the default options, no need to specify
-            //any of these properties.
-            output: {
-                beautify: false
-            },
-            compress: {
-                sequences: false,
-                global_defs: {
-                    DEBUG: false,
-                    PRODUCTION: true
-                }
-            },
-            warnings: true,
-            mangle: true
-          }
         }
       }
     },
@@ -121,5 +103,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['jshint', 'shell:testemCI']);
-  grunt.registerTask('default', ['requirejs', 'clean', 'shell:postBuild']);
+  grunt.registerTask('default', ['requirejs', 'uglify', 'clean', 'shell:postBuild']);
 };
