@@ -15,13 +15,15 @@ Web App development is still the wild west of programing. There are hundreds of 
 - bower
 
 	
-		npm install –g testem
+		npm install –g testem@0.2.83
 		npm install –g grunt-cli
 		npm install –g bower 
 
+
+
 There are two steps to get the boiler plate running. The first one is setting up the tools from the nodejs side. 
 
-	npm install
+    npm install
 
 Next after installing the all of the node packages we need we can run the javascript package manager. 
 
@@ -29,7 +31,8 @@ Next after installing the all of the node packages we need we can run the javasc
 
 Finally to build our application there are grunt tasks setup to compile the entire project.
 
-	grunt
+
+    grunt
 
 
 That's it we've just installed all of our node tools for developing. The javascript packages that the boiler plate uses and compiled it for production. 
@@ -54,10 +57,10 @@ To get sass up and running you'll need to do a few things
          sass --watch style.scss:style.css
 5. We're using compass for further simplification and a nice framework for provided helpers so lets setup that. 
 
-		gem install compass
+        gem install compass
 6. Watch our directory directory for changes. If any change is detected compass will compile the scss into the main style.css file automagically.
 
-		compass watch
+        compass watch
 
 ### Testing the front end with Testem
 
@@ -66,7 +69,7 @@ To get sass up and running you'll need to do a few things
 
  Ensure that testem is installed on your machine. 
 
-    npm install -g testem
+    npm install -g testem@0.2.83
 
  The tests for the project will be in files and subfolders under 
 
@@ -86,12 +89,12 @@ The way it works is that requirejs looks for the web browser language tag. It th
 
 You can use the application strings by defining the import with requirejs by doing
 
-		define["i18n!nls/app", AppStrings] 
+        define["i18n!nls/app", AppStrings] 
 
 Then you can pass it into any templating functionality with the AppStrings
 and do something like
 
-	{{AppStrings.title}}
+    {{AppStrings.title}}
 
 Exmaple above in Handlebars template
 
