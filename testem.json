@@ -1,4 +1,4 @@
 {
   "src_files":["app/tests/*.js"],
-  "test_page":"app/testRunner.html"
+  "test_page":"app/testRunner.mustache"
 }

@@ -15,7 +15,7 @@ Web App development is still the wild west of programing. There are hundreds of 
 - bower
 
 	
-		npm install –g testem@0.2.83
+		npm install –g testem@0.3.x
 		npm install –g grunt-cli
 		npm install –g bower 
 
@@ -69,7 +69,7 @@ To get sass up and running you'll need to do a few things
 
  Ensure that testem is installed on your machine. 
 
-    npm install -g testem@0.2.83
+    npm install -g testem@0.3.x
 
  The tests for the project will be in files and subfolders under 
 
