@@ -8,3 +8,5 @@ tests.tap
 debug
 production
 .DS_Store
+*.swp
+npm-debug.log
