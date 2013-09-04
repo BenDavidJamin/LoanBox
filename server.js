@@ -71,6 +71,6 @@ server.get(/\//, restify.serveStatic({
  */
 server.listen(config.port, function onListening() {
   logger.info(config.app.name + " started on port " + config.port + "!  " +
-          "config: " + config);
+          "config: " + JSON.stringify(config, null, '\t'));
 });
 
