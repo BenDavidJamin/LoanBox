@@ -30,12 +30,6 @@ var logger = new (winston.Logger)({
   ]
 });
 
-// This line is from the Node.js HTTPS documentation
-var options = {
-  key: fs.readFileSync('config/key.pem'),
-  cert: fs.readFileSync('config/certificate.pem')
-};
-
 
 /**
    * Create the restify server here
