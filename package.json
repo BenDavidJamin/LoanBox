@@ -14,5 +14,10 @@
     "grunt-requirejs": "~0.3.5",
     "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-contrib-clean": "~0.4.1"
+  },
+
+  "dependencies": {
+    "restify": "*",
+    "winston": "*"
   }
 }

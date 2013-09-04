@@ -1,8 +1,34 @@
-var express = require("express");
 var path = require('path');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
+
+//for error checking/throwing
+var assert = require("assert");
+
+//for web server 
+var restify = require("restify");
+
+//for logging using winston
+var winston = require("winston");
+
+// for configurations
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config/config')[env];
+
+// Setup logging
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)(),
+    new (winston.transports.File)(
+      {
+        filename: config.log.filename,
+        colorize: config.log.colorize,
+        maxsize: config.log.maxsize,
+        timestamp: config.log.timestamp
+      })
+  ]
+});
 
 // This line is from the Node.js HTTPS documentation
 var options = {
@@ -10,24 +36,41 @@ var options = {
   cert: fs.readFileSync('config/certificate.pem')
 };
 
-var app = express();
 
-app.configure(function (){
-  app.use(function (req, res, next) {
-    res.setHeader('Strict-Transport-Security', 'max-age=8640000; includeSubDomains');
-    if (!req.secure) {
-        return res.redirect(301, 'https://' + req.host  + ":" + 443 + req.url);
-    } else {
-        return next();
-    }
-  });
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.static(path.join(__dirname, 'app')));
+/**
+   * Create the restify server here
+ * defines the name and the version number
+ * the version number should corilate to 
+ * npm version in package.json
+ */
+var server = restify.createServer({
+    name: config.app.name
 });
 
-http.createServer(app).listen(80);
-// Run separate https server if on localhost
-https.createServer(options, app).listen(443, function () {
-  console.log("Express server listening with https on port %d in %s mode", this.address().port, app.settings.env);
+var serverOptions = {
+  certificate: fs.readFileSync('config/certificate.pem'),
+  key: fs.readFileSync('config/key.pem')
+};
+
+
+// restify settings
+server.use(restify.acceptParser(server.acceptable));
+server.use(restify.queryParser());
+server.use(restify.bodyParser());
+
+/**
+ * route all get calls to the backbone app
+ */
+server.get(/\//, restify.serveStatic({
+  directory: './app',
+  default: 'index.html'
+}));
+
+/**
+ * start the server and listen to it on the specified port number
+ */
+server.listen(config.port, function onListening() {
+  logger.info(config.app.name + " started on port " + config.port + "!  " +
+          "config: " + config);
 });
+
