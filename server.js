@@ -57,7 +57,8 @@ server.use(restify.bodyParser());
  */
 server.get(/\//, restify.serveStatic({
   directory: './app',
-  default: 'index.html'
+  default: 'index.html',
+  magAge: config.maxAge
 }));
 
 /**
