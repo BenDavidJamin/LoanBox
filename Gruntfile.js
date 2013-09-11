@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         options : {
           appDir: "app",
           baseUrl: "js",
-          dir: "production",
+          dir: "production/app",
           name: 'main',
           mainConfigFile: 'app/js/main.js',
           optimizeCss: 'standard',
@@ -50,16 +50,16 @@ module.exports = function(grunt) {
         },
 
         files: {
-          'production/js/main.js': ['production/js/main.js']
+          'production/app/js/main.js': ['production/app/js/main.js']
         }
       }
     },
 
     clean: [
-      'production/tests',
-      'production/testRunner.html',
-      'production/css/sass',
-      'production/css/config.rb'    
+      'production/app/tests',
+      'production/app/testRunner.html',
+      'production/app/css/sass',
+      'production/app/css/config.rb'    
     ],
 
     jshint: {
@@ -84,6 +84,15 @@ module.exports = function(grunt) {
           'mkdir js',
           'mv main.js js/main.js'
         ].join('&&')
+      },
+      copyServer: {
+        command: [
+          'cp server.js production/server.js',
+          'cp package.json production/package.json',
+          'cp bower.json production/bower.json',
+          'cp -r config production/config',
+          'cp -r node_modules production/node_modules'
+        ].join('&&')
       }
     },
 
@@ -103,5 +112,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['jshint', 'shell:testemCI']);
-  grunt.registerTask('default', ['requirejs', 'uglify', 'clean', 'shell:postBuild']);
+  grunt.registerTask('default', ['requirejs', 'uglify', 'clean', 'shell:postBuild', 'shell:copyServer']);
 };
