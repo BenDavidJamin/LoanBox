@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app"],
-	function (Backbone, _, $, App, AppStrings) {
+define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app", "hbs!templates/app"],
+	function (Backbone, _, $, App, AppStrings, AppTemplate) {
 
   /**
    * @class App
@@ -7,8 +7,9 @@ define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app"],
    * The first touch down to the application
    */
   var AppView = Backbone.View.extend({
-    // The tag type of the appview.
-    tagName: "div",
+
+    // The html template
+    template: AppTemplate,
 
     /**
      * @method initialize
@@ -26,7 +27,15 @@ define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app"],
       }
       App.trigger("init");
       console.log( 'Using', AppStrings.title);
+    },
+
+    render: function(){
+      this.$el.html(this.template());
+
+      return this;
     }
+
+
 
   });
 

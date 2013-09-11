@@ -11,7 +11,7 @@ module.exports = {
 
     host: 'localhost',
     port: 8004,
-    magAge: 1,
+    maxAge: 1,
     
     session_timeout: 1200000, //defualts to 20 minutes, in ms (20 * 60 * 1000)
     socket_loglevel: '1', // 0 - error, 1 - warn, 2 - info, 3 - debug

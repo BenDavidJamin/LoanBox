@@ -8,6 +8,7 @@
     "underscore-amd": "*",
     "handlebars": "*",
     "jasmine": "*",
+    "require-handlebars-plugin": "*",
     "normalize": "https://github.com/necolas/normalize.css.git",
     "async": "https://github.com/caolan/async.git",
     "subroute": "https://github.com/ModelN/backbone.subroute.git",

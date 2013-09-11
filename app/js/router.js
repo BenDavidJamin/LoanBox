@@ -54,7 +54,7 @@ define([
 
         var appView = new AppView();
 
-        $("#main").append(appView.el);
+        $("#main").append(appView.render().el);
     }
   });
 
