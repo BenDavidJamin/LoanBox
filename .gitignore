@@ -5,6 +5,7 @@ apidocs
 node_modules/
 logs/*
 tests.tap
+testem.tap
 debug
 production
 .DS_Store
