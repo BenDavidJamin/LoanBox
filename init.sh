@@ -19,3 +19,6 @@ git checkout ssp
 git filter-branch --prune-empty --subdirectory-filter grunt -- --all
 
 git filter-branch -f --prune-empty --index-filter 'git rm --cached --ignore-unmatch $(git ls-files | grep -v "pre-commit.sh")'
+
+# allow the scripts to be executable
+chmod +x ./*
