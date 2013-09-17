@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   //Do grunt-related things in here
 
+
   //grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -68,9 +69,17 @@ module.exports = function(grunt) {
 
     shell: {
       testemCI: {
-        command: "testem ci > testem.tap"
+        options: {
+          stdout: true,
+          failOnError: true,
+          stderr: true
+        },
+        command: "testem ci | tee testem.tap"
       },
       postBuild:{
+        options: {
+          stdout: true
+        },
         command: [
           'cd production',
           // save require.js but remove everything else in vendor dir
