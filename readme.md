@@ -9,10 +9,12 @@ Web App development is still the wild west of programing. There are hundreds of 
 ### Requirements
 
 - nodejs
+- python 
 - npm
 - testem 
 - grunt-cli
 - bower
+
 
 	
 		npm install –g testem@0.3.x
