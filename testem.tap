@@ -1,7 +1,24 @@
+# Launching IE7
+# 
+TAP version 13
+ok 1 - IE7 "undefined"
 
-1..0
-# tests 0
-# pass  0
-# fail  0
+# Launching IE8
+# 
+ok 2 - IE8 "undefined"
+
+# Launching IE9
+# 
+ok 3 - IE9 "undefined"
+
+# Launching Firefox
+# 
+ok 4 - Firefox "undefined"
+
+# Launching PhantomJS
+# 
+1..4
+# tests 4
+# pass  4
 
 # ok
