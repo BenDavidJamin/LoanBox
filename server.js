@@ -12,6 +12,9 @@ var restify = require("restify");
 //for logging using winston
 var winston = require("winston");
 
+//pull down the database api and mongoose
+var mongoose = require("mongoose");
+
 // for configurations
 var env = process.env.NODE_ENV || 'development';
 var config = require('./config/config')[env];
@@ -30,6 +33,8 @@ var logger = new (winston.Logger)({
   ]
 });
 
+//setup mongodb
+mongoose.connect(config.db.url);
 
 /**
    * Create the restify server here
@@ -40,6 +45,7 @@ var logger = new (winston.Logger)({
 var server = restify.createServer({
     name: config.app.name
 });
+
 
 var serverOptions = {
   certificate: fs.readFileSync('config/certificate.pem'),
@@ -52,6 +58,9 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
+// Bootstrap routes
+require('./server/routes')(server);
+
 /**
  * route all get calls to the backbone app
  */
@@ -60,6 +69,9 @@ server.get(/\//, restify.serveStatic({
   default: 'index.html',
   maxAge: config.maxAge
 }));
+
+
+
 
 /**
  * start the server and listen to it on the specified port number

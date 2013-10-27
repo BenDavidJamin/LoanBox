@@ -1,1 +1,8 @@
-<h1>This is the handlebars template for the GIS-Backbone-Boilerplate</h1>
+<h1>Loan Box</h1>
+{{#each loans}}
+  <div>
+    {{attributes.name}}
+    Balance: ${{attributes.balance}}
+  </div>
+{{/each }}
+

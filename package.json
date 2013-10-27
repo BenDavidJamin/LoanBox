@@ -15,9 +15,10 @@
     "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-contrib-clean": "~0.4.1"
   },
-
   "dependencies": {
     "restify": "*",
-    "winston": "*"
+    "winston": "*",
+    "mongoose": "*",
+    "cron": "~1.0.1"
   }
 }

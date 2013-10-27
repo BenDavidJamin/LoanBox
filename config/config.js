@@ -6,7 +6,8 @@ module.exports = {
   development: {
     root: require('path').normalize(__dirname + '/..'),
     app: {
-      name: "GIS Backbone Boilerplate"
+      name: "Loan Box",
+      description: "Kinda like red box for loans"
     },
 
     host: 'localhost',
@@ -17,7 +18,7 @@ module.exports = {
     socket_loglevel: '1', // 0 - error, 1 - warn, 2 - info, 3 - debug
 
     db: {
-
+      url: "mongodb://localhost"
     },
 
     mail: {

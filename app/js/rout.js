@@ -40,17 +40,14 @@ define([
      * The default view for the application.
     */
     index: function(){
-      //App.on("init", function(){ console.log("We're initing via Backbone.Events"); });
+      App.on("init", function(){ console.log("We're initing via Backbone.Events"); });
       
-      //var appView = new AppView({collection: (new Loans())});
+      var appView = new AppView({collection: (new Loans())});
 
-      //$("#main").append(appView.render().el);
+      $("#main").append(appView.render().el);
     }
   });
 
+  return App.Router;
 
-
-  //return App.Router;
-
-  return "hello";
 });

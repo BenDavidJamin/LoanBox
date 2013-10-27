@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app", "hbs!templates/app"],
-	function (Backbone, _, $, App, AppStrings, AppTemplate) {
+define(['backbone', 'underscore', 'jquery', 'app', 'views/loan/new', 'views/loan/item', "i18n!nls/app", "hbs!templates/app"],
+	function (Backbone, _, $, App, NewLoan, LoanItem, AppStrings, AppTemplate) {
 
   /**
    * @class App
@@ -10,6 +10,10 @@ define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app", "hbs!template
 
     // The html template
     template: AppTemplate,
+
+    events: {
+      "click #addLoan": "addLoan"
+    },
 
     /**
      * @method initialize
@@ -27,15 +31,25 @@ define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app", "hbs!template
       }
       App.trigger("init");
       console.log( 'Using', AppStrings.title);
+
+
+      this.newLoan = new NewLoan();
+
+      this.listenTo(this.collection, "all", this.render);
+      this.collection.fetch();
     },
 
     render: function(){
-      this.$el.html(this.template());
-
+      this.$el.empty();
+      _.each(this.collection.models, function(model){
+        this.$el.append(new LoanItem({model: model}).render().el);
+      }, this);
       return this;
+    },
+
+    addLoan: function(event){
+      console.log("So you want to add a loan");
     }
-
-
 
   });
 

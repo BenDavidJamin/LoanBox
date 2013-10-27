@@ -1,11 +1,11 @@
 *.*~
 app/vendor
 "VirtualBox Vms"
-
 app/css/sass/.sass-cache
 apidocs
 node_modules/
 logs/*
+data/db/*
 tests.tap
 testem.tap
 debug

@@ -15,6 +15,7 @@ require.config({
     'i18n': '../vendor/i18n/i18n',
     'nls': '../nls',
     'templates': '../templates'
+
   },
 
   hbs: {
@@ -38,15 +39,14 @@ require.config({
   }
 });
 
-require(["router"],
-  /**
-   *
-   * Initiates the router for the app.
-   *
-   */
+
+require(["rout"],
+
   function(Router) {
     if (typeof DEBUG == 'undefined') DEBUG = true;
     if (typeof PRODUCTION == 'undefined') PRODUCTION = false;
     return new Router();
   }
 );
+
+
