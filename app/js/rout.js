@@ -4,8 +4,9 @@ define([
   'backbone',
   'app',
   'views/app',
+  'views/loan/new',
   'collections/loans'
-], function($, Backbone, App, AppView, Loans){
+], function($, Backbone, App, AppView, NewLoanView, Loans){
 
   /**
    *
@@ -32,7 +33,8 @@ define([
 
     routes: {
       // Define some URL routes
-      "": "index"
+      "": "index",
+      "add": "addLoan"
     },
 
     /**
@@ -45,6 +47,12 @@ define([
       var appView = new AppView({collection: (new Loans())});
 
       $("#main").append(appView.render().el);
+    },
+
+    addLoan: function(){
+      var newLoanView = new NewLoanView();
+
+      $("#main").html(newLoanView.render().el);
     }
   });
 

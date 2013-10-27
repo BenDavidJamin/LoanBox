@@ -35,7 +35,8 @@ define(['backbone', 'underscore', 'jquery', 'app', "i18n!nls/app", "hbs!template
       event.preventDefault();
 
       this.loan.set("balance", this.$el.find("#balance").val());
-      //this.loan.set("rate", $("#rate").val());
+      this.loan.set("rate", this.$el.find("#rate").val());
+      this.loan.set("interest", this.$el.find("#interest").val());
 
       this.loan.save();
       this.render();

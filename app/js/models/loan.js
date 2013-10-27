@@ -8,7 +8,8 @@ define(['jquery', 'backbone', 'underscore'], function ($, Backbone, _){
       compounding: false,
       rate: 0,
       description: "You borrowed some money",
-      interest: 0
+      interest: 0,
+      balance: 0
     }
 
   });
