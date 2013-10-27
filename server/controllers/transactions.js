@@ -15,13 +15,16 @@ var interest = new cronJob('00 30 11 * * 1-7', function(){
 
         var dayly = ((loan.balance*(loan.rate/100))/365).toFixed(2);
         loan.interest = (Number(dayly) + loan.interest).toFixed(2);
-        loan.save();
 
         var transaction = new Transaction({
           amount: dayly,
           deposited: Date.now(),
           loanId: loan.id
         });
+	loan.transactions.push(transaction);
+
+        loan.save();
+	transaction.save();
       }
     }
   });
